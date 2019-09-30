@@ -16,6 +16,11 @@ apt-get remove apache2 -y
 echo "Installing NGINX"
 apt-get install nginx-light -y
 
+echo "Installing Let's Encrypt"
+apt-get update -y
+apt-get install python-certbot-nginx -t stretch-backports -y
+
+echo "Getting SSL cert"
 certbot --nginx --email $EMAIL --agree-tos --no-eff-email --domain $HOSTNAMEVAR --no-redirect
 wget https://raw.githubusercontent.com/HostiFi/unifi-lets-encrypt-ssl-updater/master/unifi-lets-encrypt-ssl-updater.sh
 chmod +x /root/unifi-lets-encrypt-ssl-importer.sh
