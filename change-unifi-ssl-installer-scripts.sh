@@ -20,11 +20,10 @@ echo "Installing Let's Encrypt"
 apt-get update -y
 apt-get install python-certbot-nginx -t stretch-backports -y
 
-echo "Getting SSL cert"
-certbot --nginx --email $EMAIL --agree-tos --no-eff-email --domain $HOSTNAMEVAR --no-redirect
+echo "Getting cert"
 wget https://raw.githubusercontent.com/HostiFi/unifi-lets-encrypt-ssl-updater/master/unifi-lets-encrypt-ssl-updater.sh
-chmod +x /root/unifi-lets-encrypt-ssl-importer.sh
-/root/unifi-lets-encrypt-ssl-importer.sh -d $HOSTNAMEVAR
+chmod +x /root/unifi-lets-encrypt-ssl-updater.sh
+/bin/bash /root/unifi-lets-encrypt-ssl-updater.sh -d $HOSTNAMEVAR -e $EMAIL
 
 echo "Creating Let's Encrypt cron"
 crontab -l > /root/letsencryptcron
