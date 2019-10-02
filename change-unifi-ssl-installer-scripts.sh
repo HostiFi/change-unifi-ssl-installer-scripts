@@ -10,6 +10,10 @@ done
 echo $EMAIL;
 echo $HOSTNAMEVAR;
 
+apt auto-remove -y
+modprobe ip_tables
+echo 'ip_tables' >> /etc/modules
+
 echo "Removing Apache2"
 apt-get remove apache2 -y
 
