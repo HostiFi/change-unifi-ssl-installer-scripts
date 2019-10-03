@@ -36,7 +36,7 @@ echo "0 22 * * * /usr/bin/certbot renew" >> /root/certbotcron
 echo "0 23 * * * /bin/bash /root/unifi-lets-encrypt-ssl-importer.sh -d $HOSTNAMEVAR" >> /root/letsencryptcron
 crontab /root/certbotcron
 crontab /root/letsencryptcron
-rm /root/cerbotcron
+rm /root/certbotcron
 rm /root/letsencryptcron
 
 echo "Removing old SSL script"
