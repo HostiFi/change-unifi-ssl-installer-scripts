@@ -10,7 +10,7 @@ done
 echo $EMAIL;
 echo $HOSTNAMEVAR;
 
-apt auto-remove -y
+apt-get autoremove -y
 modprobe ip_tables
 echo 'ip_tables' >> /etc/modules
 
