@@ -31,13 +31,13 @@ chmod +x /root/unifi-lets-encrypt-ssl-updater.sh
 
 echo "Creating Let's Encrypt cron"
 crontab -l > /root/letsencryptcron
+echo "0 23 * * * /bin/bash /root/unifi-lets-encrypt-ssl-importer.sh -d $HOSTNAMEVAR" >> /root/letsencryptcron
+crontab /root/letsencryptcron
+rm /root/letsencryptcron
 crontab -l > /root/certbotcron
 echo "0 22 * * * /usr/bin/certbot renew" >> /root/certbotcron
-echo "0 23 * * * /bin/bash /root/unifi-lets-encrypt-ssl-importer.sh -d $HOSTNAMEVAR" >> /root/letsencryptcron
 crontab /root/certbotcron
-crontab /root/letsencryptcron
 rm /root/certbotcron
-rm /root/letsencryptcron
 
 echo "Removing old SSL script"
 rm /root/unifi-ssl.sh
