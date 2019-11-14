@@ -42,16 +42,6 @@ rm /root/certbotcron
 echo "Removing old SSL script"
 rm /root/unifi-ssl.sh
 
-echo "Configuring NGINX to forward HTTP to HTTPS"
-echo "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    server_name _;
-    return 301 https://\$host\$request_uri;
-}" > /etc/nginx/sites-available/redirect
-ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
-rm /etc/nginx/sites-enabled/default
-
 echo "Restarting services"
 systemctl restart nginx
 systemctl restart unifi
