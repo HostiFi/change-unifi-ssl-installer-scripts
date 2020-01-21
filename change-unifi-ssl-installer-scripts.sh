@@ -17,6 +17,9 @@ echo 'ip_tables' >> /etc/modules
 echo "Removing Apache2"
 apt-get remove apache2 -y
 
+echo "Removing Apache2 certbot"
+apt-get remove python-certbot-apache -y
+
 echo "Installing NGINX"
 apt-get install nginx-light -y
 
