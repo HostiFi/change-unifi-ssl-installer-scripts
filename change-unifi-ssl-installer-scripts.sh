@@ -31,9 +31,9 @@ apt-get update -y
 apt-get install python-certbot-nginx -t stretch-backports -y
 
 echo "Getting cert"
-wget https://raw.githubusercontent.com/HostiFi/unifi-lets-encrypt-ssl-updater-multidomain/master/unifi-lets-encrypt-ssl-updater-multidomain.sh -O unifi-lets-encrypt-ssl-updater-multidomain.sh
+wget https://raw.githubusercontent.com/HostiFi/unifi-lets-encrypt-ssl-updater/master/unifi-lets-encrypt-ssl-updater.sh -O unifi-lets-encrypt-ssl-updater.sh
 chmod +x /root/unifi-lets-encrypt-ssl-updater.sh
-/bin/bash /root/unifi-lets-encrypt-ssl-updater-multidomain.sh $DOMAINSTR -e $EMAIL
+/bin/bash /root/unifi-lets-encrypt-ssl-updater.sh $DOMAINSTR -e $EMAIL
 
 echo "Creating Let's Encrypt cron"
 crontab -l > /root/letsencryptcron
